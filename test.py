@@ -53,7 +53,7 @@ if __name__ == '__main__':
     dataA=faceData(dataRoot+dataFolder, expression,delta,embedding_nc)
     datasetA = DataLoader(dataA, 1, shuffle=False,num_workers=0)
 
-    dataFolder='testB'
+    dataFolder='testA'
     dataB=faceData(dataRoot+dataFolder, expression,delta,embedding_nc)
     datasetB = DataLoader(dataB, 1, shuffle=False,num_workers=0)
 
@@ -84,6 +84,9 @@ if __name__ == '__main__':
 
     for i, dataA in enumerate(datasetA):
         for j, dataB in enumerate(datasetB):
+            
+            if not i==j:
+                continue
 
             neu=dataB['neu']
             exp=dataB['exp']
